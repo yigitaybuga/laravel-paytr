@@ -45,6 +45,14 @@ class Payment extends PaytrClient
     /**
      * @var string
      */
+    private $successUrl;
+    /**
+     * @var string
+     */
+    private $failUrl;    
+    /**
+     * @var string
+     */
     private $userPhone;
     /**
      * @var string
@@ -225,6 +233,40 @@ class Payment extends PaytrClient
     /**
      * @return string
      */
+    public function getSuccessUrl(): string
+    {
+        return $this->successUrl;
+    }
+
+    /**
+     * @param string $successUrl
+     */
+    public function setSuccessUrl(string $successUrl)
+    {
+        $this->successUrl = $successUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFailUrl(): string
+    {
+        return $this->failUrl;
+    }   
+
+     /**
+     * @param string $failUrl
+     */
+    public function setSuccessUrl(string $failUrl)
+    {
+        $this->failUrl = $failUrl;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
     public function getUserPhone(): string
     {
         return $this->userPhone;
@@ -351,8 +393,8 @@ class Payment extends PaytrClient
             'user_name' => $this->getUserName(),
             'user_address' => $this->getUserAddress(),
             'user_phone' => $this->getUserPhone(),
-            'merchant_ok_url' => $this->options['success_url'],
-            'merchant_fail_url' => $this->options['fail_url'],
+            'merchant_ok_url' => $this->getSuccessUrl(),
+            'merchant_fail_url' => $this->getFailUrl(),                    
             'currency' => $this->getCurrency(),
             'test_mode' => $this->options['test_mode'],
         ];

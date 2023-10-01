@@ -5,7 +5,7 @@ This package has been developed only for the Paytr Iframe API service.
 
 **How to install?**
 
-    composer require gizemsever/laravel-paytr
+    composer require yigitaybuga/laravel-paytr
     
 Publish provider
    
